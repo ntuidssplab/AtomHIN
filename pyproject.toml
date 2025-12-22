@@ -1,0 +1,244 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dhgl", "naive_flow", "scripts"]
+[tool.setuptools.package-dir]
+dhgl = "src/dhgl"
+naive_flow = "src/naive_flow"
+scripts = "scripts"
+
+
+[project]
+name = "dhgl"
+authors = [
+    {name = "Smark Lin", email = "r12942082@ntu.edu.tw"},
+]
+description = "TODO"
+readme = "readme.md"
+requires-python = ">=3.10"
+# keywords = ["one", "two"]
+# license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    # "torch==2.0.1",
+    # "dgl==1.1.2",
+    "packaging",
+    "tabulate",
+    "lazy-imports",
+    "scikit-learn",
+    "numpy<2",
+    "termcolor",
+    "pydantic >= 2.0",
+    "pydantic-settings >= 2.0",
+]
+version = "1.0.0"
+
+[project.optional-dependencies]
+scripts = [
+    "tensorboard",
+    "xgboost",
+]
+precom = [
+    "zarr>=3",
+    "numba",
+]
+ray = [
+    "ray[tune]",
+    "optuna>=3",
+    "gputil",
+    "rich",
+]
+
+[project.urls]
+
+[project.scripts]
+train = "scripts.train.__main__:main"
+benchmark = "scripts.utils.benchmark:main"
+statistic = "scripts.utils.statistic:main"
+raytune = "scripts.raytune.__main__:main"
+propfeat = "scripts.precom.propfeat:main"
+precom = "scripts.precom.__main__:main"
+linkpred = "scripts.train.linkpred.__main__:main"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+# [tool.pyright]
+# include = ["src"]
+# exclude = ["**/node_modules",
+#     "**/__pycache__",
+# ]
+# reportArgumentType = "warning"
+# reportPrivateImportUsage = "warning"
+
+
+[tool.pylint]
+extension-pkg-whitelist= [
+    "numpy",
+    "torch",
+    "cv2",
+    "pyodbc",
+    "pydantic",
+    "ciso8601",
+    "netcdf4",
+    "scipy"
+]
+ignore="CVS"
+ignore-patterns="test.*?py,conftest.py"
+init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
+jobs=0
+limit-inference-results=100
+persistent="yes"
+suggestion-mode="yes"
+unsafe-load-any-extension="no"
+
+[tool.pylint.'MESSAGES CONTROL']
+enable="c-extension-no-member"
+disable=["unsubscriptable-object"] #https://github.com/pylint-dev/pylint/issues/3139
+
+[tool.pylint.'REPORTS']
+evaluation="10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)"
+output-format="text"
+reports="no"
+score="yes"
+
+[tool.pylint.'REFACTORING']
+max-nested-blocks=5
+never-returning-functions="sys.exit"
+
+[tool.pylint.'BASIC']
+argument-naming-style="snake_case"
+attr-naming-style="snake_case"
+bad-names= [
+    "foo",
+    "bar"
+]
+class-attribute-naming-style="any"
+class-naming-style="PascalCase"
+const-naming-style="UPPER_CASE"
+docstring-min-length=-1
+function-naming-style="snake_case"
+good-names= [
+    "i",
+    "j",
+    "k",
+    "ex",
+    "Run",
+    "_"
+]
+include-naming-hint="yes"
+inlinevar-naming-style="any"
+method-naming-style="snake_case"
+module-naming-style="any"
+no-docstring-rgx="^_"
+property-classes="abc.abstractproperty"
+variable-naming-style="snake_case"
+
+[tool.pylint.'FORMAT']
+ignore-long-lines="^\\s*(# )?.*['\"]?<?https?://\\S+>?"
+indent-after-paren=4
+indent-string='    '
+max-line-length=120
+max-module-lines=1000
+single-line-class-stmt="no"
+single-line-if-stmt="no"
+
+[tool.pylint.'LOGGING']
+logging-format-style="old"
+logging-modules="logging"
+
+[tool.pylint.'MISCELLANEOUS']
+notes= [
+    "FIXME",
+    "XXX",
+    "TODO"
+]
+
+[tool.pylint.'SIMILARITIES']
+ignore-comments="yes"
+ignore-docstrings="yes"
+ignore-imports="yes"
+min-similarity-lines=7
+
+[tool.pylint.'SPELLING']
+max-spelling-suggestions=4
+spelling-store-unknown-words="no"
+
+[tool.pylint.'STRING']
+check-str-concat-over-line-jumps="no"
+
+[tool.pylint.'TYPECHECK']
+contextmanager-decorators="contextlib.contextmanager"
+generated-members="numpy.*,np.*,pyspark.sql.functions,collect_list"
+ignore-mixin-members="yes"
+ignore-none="yes"
+ignore-on-opaque-inference="yes"
+ignored-classes="optparse.Values,thread._local,_thread._local,numpy,torch,swagger_client"
+ignored-modules="numpy,torch,swagger_client,netCDF4,scipy"
+missing-member-hint="yes"
+missing-member-hint-distance=1
+missing-member-max-choices=1
+
+[tool.pylint.'VARIABLES']
+additional-builtins="dbutils"
+allow-global-unused-variables="yes"
+callbacks= [
+    "cb_",
+    "_cb"
+]
+dummy-variables-rgx="_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
+ignored-argument-names="_.*|^ignored_|^unused_"
+init-import="no"
+redefining-builtins-modules="six.moves,past.builtins,future.builtins,builtins,io"
+
+[tool.pylint.'CLASSES']
+defining-attr-methods= [
+    "__init__",
+    "__new__",
+    "setUp",
+    "__post_init__"
+]
+exclude-protected= [
+    "_asdict",
+    "_fields",
+    "_replace",
+    "_source",
+    "_make"
+]
+valid-classmethod-first-arg="cls"
+valid-metaclass-classmethod-first-arg="cls"
+
+[tool.pylint.'DESIGN']
+max-args=5
+max-attributes=7
+max-bool-expr=5
+max-branches=12
+max-locals=15
+max-parents=7
+max-public-methods=20
+max-returns=6
+max-statements=50
+min-public-methods=2
+
+[tool.pylint.'IMPORTS']
+allow-wildcard-with-all="no"
+analyse-fallback-blocks="no"
+deprecated-modules="optparse,tkinter.tix"
+
+[tool.pylint.'EXCEPTIONS']
+overgeneral-exceptions= [
+    "BaseException",
+    "Exception"
+]
+
+[tool.yapf]
+based_on_style = "pep8"
+split_before_named_assigns = false
+dedent_closing_brackets = true
+
+[tool.isort]
+profile = "black"

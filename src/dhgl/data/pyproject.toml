@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["hetero_datasets"]
+
+
+[project]
+name = "hetero_datasets"
+authors = [
+    {name = "Anonymous", email = "anonymous@anonymous.com"},
+]
+description = "Heterogeneous datasets extending the DGLDataset"
+readme = "readme.md"
+requires-python = ">=3.7"
+# keywords = ["one", "two"]
+# license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+]
+version = "0.1.1"
+
+# [project.optional-dependencies]
+# pdf = ["ReportLab>=1.2", "RXP"]
+# rest = ["docutils>=0.3", "pack ==1.1, ==1.3"]
+
+[project.urls]
+#
+
+# [project.scripts]
+# my-script = "my_package.module:function"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
