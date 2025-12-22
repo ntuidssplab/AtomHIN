@@ -219,8 +219,8 @@ For **OGBN-MAG**, feature propagation and precomputation must be performed
 ### Feature Propagation
 
 ```sh
-propfeat envs/ogbn-mag/nmag.sRGCN.env -K3 &&
-propfeat envs/ogbn-mag/nmag.sRGCN.env -K4 --lpa --lpa-batch-size=128
+propfeat envs/ogbn-mag/atomic-mag.sRGCN.env -K3 &&
+propfeat envs/ogbn-mag/atomic-mag.sRGCN.env -K4 --lpa --lpa-batch-size=128
 ```
 
 ### Training Entry Point
@@ -228,7 +228,7 @@ propfeat envs/ogbn-mag/nmag.sRGCN.env -K4 --lpa --lpa-batch-size=128
 * **Entry point:** [`./scripts/precom/__main__.py`](./scripts/precom/__main__.py)
 
 ```sh
-precom envs/ogbn-mag/nmag.sRGCN.env
+precom envs/ogbn-mag/atomic-mag.sRGCN.env
 ```
 
 ---
