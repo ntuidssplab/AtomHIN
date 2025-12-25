@@ -1,5 +1,7 @@
 # Atomic HINs
 
+This repository contains the official implementation of “Atomic HINs: Entity–Attribute Duality for Heterogeneous Graph Modeling.”
+
 - [Install and Setup](#install-and-setup)
 - [Quick Start: Load Released Datasets](#quick-start-load-released-datasets)
   - [Released Atomic Datasets](#released-atomic-datasets)
