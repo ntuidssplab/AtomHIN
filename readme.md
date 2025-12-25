@@ -14,7 +14,7 @@
 
 ```sh
 git clone <repo>
-cd dhgl
+cd AtomHIN
 ```
 
 ### 2. Install PyTorch & DGL
