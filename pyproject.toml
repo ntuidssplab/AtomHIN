@@ -15,11 +15,11 @@ name = "dhgl"
 authors = [
     {name = "Smark Lin", email = "r12942082@ntu.edu.tw"},
 ]
-description = "TODO"
+description = "Official implementation for \"Atomic HINs: Entity-Attribute Duality for Heterogeneous Graph Modeling\" (ICLR 2026)."
 readme = "readme.md"
 requires-python = ">=3.10"
-# keywords = ["one", "two"]
-# license = {text = "BSD-3-Clause"}
+keywords = ["heterogeneous graphs", "HIN", "AtomHIN", "AtomicHINs", "HGB", "HGNN"]
+license = {text = "MIT"}
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
@@ -54,6 +54,8 @@ ray = [
 ]
 
 [project.urls]
+Homepage = "https://github.com/ntuidssplab/AtomHIN"
+Repository = "https://github.com/ntuidssplab/AtomHIN"
 
 [project.scripts]
 train = "scripts.train.__main__:main"

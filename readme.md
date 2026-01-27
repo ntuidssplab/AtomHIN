@@ -1,6 +1,6 @@
 # Atomic HINs
 
-This repository contains the official implementation of “Atomic HINs: Entity–Attribute Duality for Heterogeneous Graph Modeling.”
+This repository contains the official implementation of “Atomic HINs: Entity–Attribute Duality for Heterogeneous Graph Modeling” (ICLR 2026).
 
 - [Install and Setup](#install-and-setup)
 - [Quick Start: Load Released Datasets](#quick-start-load-released-datasets)
@@ -263,3 +263,15 @@ raytune envs/imdb/GA/tune.GA.py -n 1024
   [https://docs.ray.io/en/latest/tune/examples/tune_analyze_results.html](https://docs.ray.io/en/latest/tune/examples/tune_analyze_results.html)
 * A result-parsing template is provided at:
   [`scripts/get_ray_results.py`](./scripts/get_ray_results.py)
+
+## Citation
+If you find AtomHIN useful in your research, please consider citing our paper:
+
+```
+@inproceedings{lin2026atomhin,
+  title     = {Atomic HINs: Entity-Attribute Duality for Heterogeneous Graph Modeling},
+  author    = {Shao-En Lin and Ming-Yi Hong and Miao-Chen Chiang and Chih-Yu Wang and Che Lin},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2026}
+}
+```
