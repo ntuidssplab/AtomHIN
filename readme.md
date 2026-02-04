@@ -10,7 +10,15 @@ This repository contains the official implementation of “Atomic HINs: Entity�
 - [Training, Evaluation, and Schema Search](#training-evaluation-and-schema-search)
 
 
-## Install and Setup
+## 🚀 Quick Install
+
+If you only need the library features (e.g., loading released datasets with `dhgl.get_dataset`), you can install with:
+
+```sh
+pip install git+https://github.com/ntuidssplab/AtomHIN
+```
+
+## Manual Install and Setup
 
 ### 1. Clone the repository
 
@@ -49,8 +57,6 @@ pip install -e .[precom]
 ```sh
 pip install -e .[ray]
 ```
-
-⚠️ **Note:** Do **not** install with `requirements.txt` — it is for debugging only.
 
 ---
 
