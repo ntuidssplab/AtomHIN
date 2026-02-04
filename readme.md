@@ -97,7 +97,7 @@ hg = dhgl.get_dataset('atomic-imdb', profile='atomic')
 hg = dhgl.get_dataset('atomic-imdb', profile='srgcn')
 ```
 
-- NOTE: for OGBN-MAG, use have to install package from [ogb](https://ogb.stanford.edu)
+- NOTE: for OGBN-MAG, you have to install the package from [ogb](https://ogb.stanford.edu)
 
 ---
 
