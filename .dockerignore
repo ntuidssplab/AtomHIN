@@ -1,0 +1,12 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+dist
+build
+.cache
+outputs
+wandb
+runs
+data

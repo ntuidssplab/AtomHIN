@@ -10,49 +10,65 @@ This repository contains the official implementation of “Atomic HINs: Entity�
 - [Training, Evaluation, and Schema Search](#training-evaluation-and-schema-search)
 
 
-## 🚀 Quick Install
+## Install and Setup
 
-If you only need the library features (e.g., loading released datasets with `dhgl.get_dataset`), you can install with:
+We recommend using Docker for a reproducible environment with the correct dependencies preconfigured.
+
+### Recommended: Docker Installation
+
+Clone the repository and build the Docker image:
 
 ```sh
-pip install git+https://github.com/ntuidssplab/AtomHIN
+git clone https://github.com/ntuidssplab/AtomHIN
+cd AtomHIN
+docker build -t atomhin:latest .
+````
+
+Run the container:
+
+```sh
+docker run --rm -it --gpus all \
+  -v "$PWD":/workspace/AtomHIN \
+  -w /workspace/AtomHIN \
+  atomhin:latest
 ```
 
-## Manual Install and Setup
+### Manual Installation
 
-### 1. Clone the repository
+If you prefer setting up the environment manually, follow the steps below.
+
+#### 1. Clone the repository
 
 ```sh
 git clone <repo>
 cd AtomHIN
 ```
 
-### 2. Install PyTorch & DGL
+#### 2. Install PyTorch & DGL
 
-Install PyTorch and DGL with the CUDA version that matches your device.
-Helper scripts such as `cuda118.sh` or `cuda121.sh` may be useful.
+Install PyTorch and DGL versions compatible with your system and CUDA setup.
 
-### 3. Install the package
+#### 3. Install the package
 
-* **Library only** (minimal install):
+**Library only** (minimal install):
 
 ```sh
 pip install -e .
 ```
 
-* **With training scripts** (for node-level and link-level tasks):
+**With training scripts** (for node-level and link-level tasks):
 
 ```sh
 pip install -e .[scripts]
 ```
 
-* **With precomputation support** (e.g., OGBN-MAG):
+**With precomputation support** (e.g., OGBN-MAG):
 
 ```sh
 pip install -e .[precom]
 ```
 
-* **With Ray Tune support** (for schema optimization):
+**With Ray Tune support** (for schema optimization):
 
 ```sh
 pip install -e .[ray]
