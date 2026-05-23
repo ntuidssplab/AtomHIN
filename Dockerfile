@@ -5,4 +5,5 @@ WORKDIR /workspace/AtomHIN
 COPY . .
 
 RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
     pip install -e ".[scripts,precom,ray]"
